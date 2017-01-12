@@ -2679,6 +2679,9 @@ module RbReadline
       old.force_encoding('ASCII-8BIT')
       new.force_encoding('ASCII-8BIT')
     end
+    
+    # FIXME: This is a hack to stop crashes, when loading long lines.
+    ostart ||= 0
 
     if !@rl_byte_oriented
       temp = @_rl_last_c_pos
